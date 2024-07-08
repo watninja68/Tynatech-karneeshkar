@@ -1,0 +1,54 @@
+﻿  BasicRFIDHost1.cpp
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\resource.h(26,1): warning C4005: 'IDCANCEL': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winuser.h(11152,1): message : see previous definition of 'IDCANCEL'
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(150,5): warning C4996: '_swprintf': This function or variable may be unsafe. Consider using swprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(156,5): warning C4996: '_swprintf': This function or variable may be unsafe. Consider using swprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(87,8): warning C4101: 'dwThreadId': unreferenced local variable
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(88,8): warning C4101: 'hPopupMenu': unreferenced local variable
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(270,37): warning C4244: '=': conversion from 'LRESULT' to 'int', possible loss of data
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(226,7): warning C4101: 'rc': unreferenced local variable
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(321,2): warning C4996: '_swprintf': This function or variable may be unsafe. Consider using swprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(340,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(386,41): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(346,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(349,2): warning C4996: '_swprintf': This function or variable may be unsafe. Consider using swprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(356,16): warning C4996: '_wfopen': This function or variable may be unsafe. Consider using _wfopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(426,4): warning C4996: '_swprintf': This function or variable may be unsafe. Consider using swprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(433,4): warning C4996: 'wcscpy': This function or variable may be unsafe. Consider using wcscpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(438,5): warning C4996: '_swprintf': This function or variable may be unsafe. Consider using swprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(445,5): warning C4996: '_swprintf': This function or variable may be unsafe. Consider using swprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(467,28): warning C4477: 'swscanf' : format string '%02x' requires an argument of type 'unsigned int *', but variadic argument 1 has type 'BYTE *'
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(467,28): message : consider using '%hhx' in the format string
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(467,3): warning C4996: 'swscanf': This function or variable may be unsafe. Consider using swscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(539,29): warning C4244: '=': conversion from 'LRESULT' to 'int', possible loss of data
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(536,5): warning C4996: 'swscanf': This function or variable may be unsafe. Consider using swscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(554,7): warning C4996: '_swprintf': This function or variable may be unsafe. Consider using swprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(558,8): warning C4996: '_swprintf': This function or variable may be unsafe. Consider using swprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(645,29): warning C4244: '=': conversion from 'LRESULT' to 'int', possible loss of data
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(642,5): warning C4996: 'swscanf': This function or variable may be unsafe. Consider using swscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(717,5): warning C4996: 'swscanf': This function or variable may be unsafe. Consider using swscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(807,28): warning C4244: '=': conversion from 'LRESULT' to 'int', possible loss of data
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(810,28): warning C4244: '=': conversion from 'LRESULT' to 'int', possible loss of data
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(804,5): warning C4996: 'swscanf': This function or variable may be unsafe. Consider using swscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring(2728,53): warning C4244: 'argument': conversion from 'wchar_t' to 'const _Elem', possible loss of data
+          with
+          [
+              _Elem=char
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\xstring(2584,17): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct_from_iter<wchar_t*,wchar_t*,_Size_type>(_Iter,const _Sent,_Size)' being compiled
+          with
+          [
+              _Size_type=unsigned __int64,
+              _Iter=wchar_t *,
+              _Sent=wchar_t *,
+              _Size=unsigned __int64
+          ]
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(353,17): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)' being compiled
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\BasicRFIDHost1.cpp(353,17): message : see the first reference to 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string' in 'printTagData'
+  BasicRFIDHost1.vcxproj -> C:\Users\Home\Desktop\tynateck\zebra sdk\Samples\C\Basic\BasicRFIDHost1\x64\Debug\BasicRFIDHost1.exe

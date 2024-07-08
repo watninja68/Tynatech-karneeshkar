@@ -1,0 +1,140 @@
+version: "3.9"
+
+services:
+  telegraf:
+    container_name: emqx-ecp-telegraf
+    image: ${IMAGE_REGISTRY}/${IMAGE_TELEGRAF}
+    restart: always
+    ports:
+      - ${TELEGRAF_EXTERNAL_PORT}:10514/udp
+    volumes:
+      - ${ECP_CONFIG_DIR}/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf
+    networks:
+      - emqx-ecp-network
+
+  prometheus:
+    container_name: emqx-ecp-prometheus
+    image: ${IMAGE_REGISTRY}/${IMAGE_PROMETHEUS}
+    user: "${ECP_UID}:${ECP_GID}"
+    restart: always
+    ports:
+      - ${PROMETHEUS_EXTERNAL_PORT}:9090
+    volumes:
+      - ${PROMETHEUS_VOLUME}/prom-data:/prometheus
+      - ${ECP_CONFIG_DIR}/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=${PROMETHEUS_RETENTION_TIME}
+      - --storage.tsdb.retention.size=${PROMETHEUS_RETENTION_SIZE}
+      - --web.console.libraries=/usr/share/prometheus/console_libraries
+      - --web.console.templates=/usr/share/prometheus/consoles
+      - --web.enable-lifecycle
+    networks:
+      - emqx-ecp-network
+  
+  pushgateway:
+    container_name: emqx-ecp-pushgateway
+    image: ${IMAGE_REGISTRY}/${IMAGE_PUSHGATEWAY}
+    user: "${ECP_UID}:${ECP_GID}"
+    restart: always
+    ports:
+      - ${PUSHGATEWAY_EXTERNAL_PORT}:9091
+    networks:
+      - emqx-ecp-network
+
+  main:
+    container_name: emqx-ecp-main
+    image: ${IMAGE_REGISTRY}/${IMAGE_ECP_MAIN}
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mqtt:
+        condition: service_started
+      emqxagentdlproxy:
+        condition: service_started
+    environment:
+      - GIN_MODE=release
+      - ECP_DEPLOYMENT_MODE=docker
+    volumes:
+      - ${ECP_MAIN_VOLUME}:/bc/assets/files
+      - ${ECP_CONFIG_DIR}/main/main.yaml:/bc/configs/conf.yaml
+    networks:
+      - emqx-ecp-network
+
+  ui:
+    container_name: emqx-ecp-ui
+    image: ${IMAGE_REGISTRY}/${IMAGE_ECP_UI}
+    restart: always
+    depends_on:
+      main:
+        condition: service_started
+      telegraf:
+        condition: service_started
+      pushgateway:
+        condition: service_started
+    ports:
+      - ${ECP_EXTERNAL_PORT}:8080
+      - ${ECP_EXTERNAL_PORT}:8080/udp
+    volumes:
+      - ${ECP_CONFIG_DIR}/uiproxy/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - emqx-ecp-network
+
+  postgres:
+    container_name: emqx-ecp-postgresql
+    image: ${IMAGE_REGISTRY}/${IMAGE_POSTGRES}
+    restart: always
+    ports:
+      - ${PG_EXTERNAL_PORT}:5432
+    environment:
+      POSTGRES_USER: ${PG_USERNAME}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_DB: ${PG_DATABASE_ECP}
+    volumes:
+      - ${PG_VOLUME}:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - emqx-ecp-network
+
+  mqtt:
+    container_name: emqx-ecp-nanomq
+    image: ${IMAGE_REGISTRY}/${IMAGE_NANOMQ}
+    restart: always
+    hostname: ecp-nanomq
+    ports:
+      - ${MQTT_EXTERNAL_PORT}:1883
+      - ${MQTT_EXTERNAL_SSL_PORT}:8883
+    volumes:
+      - ${ECP_CONFIG_DIR}/nanomq/nanomq.conf:/etc/nanomq.conf
+      #- ${ECP_CONFIG_DIR}/nanomq/cacert.pem:/etc/certs/cacert.pem:ro
+      #- ${ECP_CONFIG_DIR}/nanomq/cert.pem:/etc/certs/cert.pem:ro
+      #- ${ECP_CONFIG_DIR}/nanomq/key.pem:/etc/certs/key.pem:ro
+    environment:
+      NANOMQ_TLS_ENABLE: 'false'
+      NANOMQ_TLS_VERIFY_PEER: 'false'
+      NANOMQ_TLS_FAIL_IF_NO_PEER_CERT: 'false'
+    networks:
+      emqx-ecp-network:
+        aliases:
+          - node1
+
+  emqxagentdlproxy:
+    container_name: emqx-ecp-emqxagent-dl-proxy
+    image: ${IMAGE_REGISTRY}/${IMAGE_ECP_EMQXAGENT_DOWNLOADPROXY}
+    environment:
+      - GIN_MODE=release
+    command: [ "--addr", ":8083" ]
+    expose:
+      - 8083
+    restart: always
+    networks:
+      - emqx-ecp-network
+
+networks:
+  emqx-ecp-network:

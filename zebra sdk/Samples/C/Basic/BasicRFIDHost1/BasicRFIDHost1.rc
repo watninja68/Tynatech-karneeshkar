@@ -1,0 +1,311 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_BASICRFIDSAMPLE     ICON                    "BasicRFIDHost1.ico"
+IDI_SMALL               ICON                    "small.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDC_BASICRFIDSAMPLE MENU 
+BEGIN
+    POPUP "&Reader"
+    BEGIN
+        MENUITEM "&Connect",                    IDM_CONNECT
+        MENUITEM "&Disconnect",                 IDM_DISCONNECT
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About ...",                  IDM_ABOUT
+    END
+END
+
+IDR_MENU1 MENU 
+BEGIN
+    POPUP " "
+    BEGIN
+        MENUITEM "Read",                        ID_TAG_READ
+        MENUITEM "Write",                       ID_TAG_WRITE
+        MENUITEM "Lock",                        ID_TAG_LOCK
+        MENUITEM "Kill",                        ID_TAG_KILL
+        MENUITEM SEPARATOR
+        MENUITEM "Clear Tags",                  ID_CLEAR_TAGS
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDC_BASICRFIDSAMPLE ACCELERATORS 
+BEGIN
+    "?",            IDM_ABOUT,              ASCII,  ALT
+    "/",            IDM_ABOUT,              ASCII,  ALT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 22, 17, 171, 51
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    ICON            1010,IDI_BASICRFIDSAMPLE,9,9,20,20
+    LTEXT           "BasicRFIDHost1",IDC_STATIC,34,9,92,8,SS_NOPREFIX | SS_ENDELLIPSIS
+    LTEXT           "Copyright (C) 2009",IDC_STATIC,34,35,67,8
+    DEFPUSHBUTTON   "OK",IDOK,135,35,30,11,WS_GROUP
+    LTEXT           "",IDC_TB_DLL_VERSION,105,22,57,8
+    LTEXT           "RFID C DLL Version",IDC_STATIC,34,22,67,8
+END
+
+IDD_INVENTORY_DIALOG DIALOGEX 0, 0, 189, 242
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_STATICEDGE
+CAPTION "BasicRFIDHost1"
+MENU IDC_BASICRFIDSAMPLE
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    LISTBOX         IDC_INVENTORY_LIST,2,7,181,194,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Start Read",IDC_BUTTON1,2,206,50,14
+    LTEXT           "Static",IDC_STATUS,0,229,184,11,SS_SUNKEN | SS_WORDELLIPSIS
+    LTEXT           "",IDC_EVENT_NOTIFY,58,206,125,17
+END
+
+IDD_IP_DIALOG DIALOGEX 0, 0, 161, 92
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | DS_FIXEDSYS | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "Connection..."
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_IPADDRESS,"SysIPAddress32",WS_TABSTOP,49,18,100,15
+    EDITTEXT        IDC_PORT,49,40,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "&Connect",ID_CONNECT,7,71,50,14
+    PUSHBUTTON      "C&ancel",ID_CANCEL,65,71,50,14
+    LTEXT           "Reader IP",IDC_STATIC,14,22,33,8
+    LTEXT           "Port",IDC_STATIC,14,44,14,8
+END
+
+IDD_READ_TAG_DIALOG DIALOGEX 0, 0, 177, 158
+STYLE DS_ABSALIGN | DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "Read Tag"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_TAG_ID,42,8,132,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,42,29,93,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_MEM_BANK,42,49,93,43,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_OFFSET,42,70,44,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_LENGTH,129,70,44,14,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "&Read",IDC_READ,124,100,50,14
+    LTEXT           "TagID:",IDC_STATIC,5,12,23,8
+    LTEXT           "Password:",IDC_STATIC,5,32,34,8
+    LTEXT           "Memory Bank:",IDC_STATIC,5,47,33,19
+    LTEXT           "Byte Offset:",IDC_STATIC,5,73,24,18
+    LTEXT           "Byte Length:",IDC_STATIC,100,71,26,20
+    LTEXT           "Data Read:",IDC_STATIC,5,106,38,8
+    EDITTEXT        IDC_DATA_READ,3,117,172,41,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY,WS_EX_CLIENTEDGE
+END
+
+IDD_WRITE_TAG_DIALOG DIALOGEX 0, 0, 177, 158
+STYLE DS_ABSALIGN | DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "Write Tag"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_TAG_ID,42,8,132,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,42,29,93,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_MEM_BANK,42,49,93,43,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_OFFSET,42,70,44,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_LENGTH,129,70,44,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_VISIBLE
+    DEFPUSHBUTTON   "&Write",IDC_WRITE,125,143,50,14
+    LTEXT           "TagID:",IDC_STATIC,5,12,23,8
+    LTEXT           "Password:",IDC_STATIC,5,32,34,8
+    LTEXT           "Memory Bank:",IDC_STATIC,5,47,33,19
+    LTEXT           "Byte Offset:",IDC_STATIC,5,67,24,19
+    LTEXT           "Byte Length:",IDC_STATIC,100,67,25,18,NOT WS_VISIBLE
+    LTEXT           "Data to Write:",IDC_STATIC,5,90,47,8
+    EDITTEXT        IDC_DATA_WRITE,3,101,172,41,ES_MULTILINE | ES_AUTOVSCROLL,WS_EX_CLIENTEDGE
+END
+
+IDD_LOCK_TAG_DIALOG DIALOGEX 0, 0, 177, 129
+STYLE DS_ABSALIGN | DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "Lock Tag"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_TAG_ID,41,8,132,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,41,29,93,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_DATA_FIELD,41,49,93,43,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "&Lock",IDC_LOCK,124,107,50,14
+    LTEXT           "TagID:",IDC_STATIC,5,12,23,8
+    LTEXT           "Password:",IDC_STATIC,5,32,34,8
+    LTEXT           "Data Field:",IDC_STATIC,5,49,33,18
+    COMBOBOX        IDC_COMBO_PRIVILEGE,41,69,93,43,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Privilege:",IDC_STATIC,5,71,33,10
+END
+
+IDD_KILL_TAG_DIALOG DIALOGEX 0, 0, 186, 95
+STYLE DS_ABSALIGN | DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "Kill Tag"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Kill",IDC_KILL,129,66,50,14
+    EDITTEXT        IDC_TAG_ID,55,14,93,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,56,38,93,14,ES_AUTOHSCROLL
+    LTEXT           "TagID:",IDC_STATIC,14,19,23,8
+    LTEXT           "Password:",IDC_STATIC,14,39,34,8
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        RIGHTMARGIN, 169
+        BOTTOMMARGIN, 42
+    END
+
+    IDD_INVENTORY_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 182
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 240
+    END
+
+    IDD_IP_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 154
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 85
+    END
+
+    IDD_READ_TAG_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 175
+        TOPMARGIN, 7
+    END
+
+    IDD_WRITE_TAG_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 175
+        TOPMARGIN, 7
+    END
+
+    IDD_LOCK_TAG_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 175
+        TOPMARGIN, 7
+    END
+
+    IDD_KILL_TAG_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        VERTGUIDE, 102
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_APP_TITLE           "BasicRFIDHostSample"
+    IDC_BASICRFIDSAMPLE     "BASICRFIDHostSample"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
